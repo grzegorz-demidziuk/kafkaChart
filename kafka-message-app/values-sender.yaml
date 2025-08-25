@@ -8,7 +8,7 @@ deployment:
     - -c
     - |
       while true; do
-        echo "Message from kafka sender" | kafkacat -b whirly-cluster-kafka-bootstrap.kafka:9092 -t grzegorz-topic -P
+        echo "New message send from kafka at ArgoCD" | kafkacat -b whirly-cluster-kafka-bootstrap.kafka:9092 -t grzegorz-topic -P
         echo "Wiadomosc"
         sleep 10
       done
