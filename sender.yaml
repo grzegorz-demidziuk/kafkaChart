@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-sender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-sender
+  template:
+    metadata:
+      labels:
+        app: kafka-sender
+    spec:
+      containers:
+        - name: kafka-sender
+          image: confluentinc/cp-kafkacat:7.1.16
+          command:
+            - sh
+            - -c
+            - |
+              while true; do
+                echo "Message from kafka sender" | kafkacat -b whirly-cluster-kafka-bootstrap.kafka:9092 -t grzegorz-topic -P
+                echo "Wiadomosc"
+                sleep 10
+              done

@@ -1,0 +1,14 @@
+deployment:
+  image: confluentinc/cp-kafkacat
+  version: "7.1.16"
+  name: "kafka-receiver"
+  label: kafka-receiver
+  command:
+    - sh
+    - -c
+    - kafkacat 
+    - -b 
+    - bootstrap-servers:whirly-cluster-kafka-bootstrap.kafka:9092 
+    - -t 
+    - grzegorz-topic
+    - -C
