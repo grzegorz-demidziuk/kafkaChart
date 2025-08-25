@@ -6,9 +6,4 @@ deployment:
   command:
     - sh
     - -c
-    - kafkacat 
-    - -b 
-    - bootstrap-servers:whirly-cluster-kafka-bootstrap.kafka:9092 
-    - -t 
-    - grzegorz-topic
-    - -C
+    - kafkacat -b whirly-cluster-kafka-bootstrap.kafka:9092 -t grzegorz-topic -C

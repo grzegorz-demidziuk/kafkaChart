@@ -8,6 +8,7 @@ deployment:
     - -c
     - |
       while true; do
-        echo "Message at $(date)" | kafkacat -b bootstrap-servers:whirly-cluster-kafka-bootstrap.kafka:9092 -t grzegorz-topic -P
+        echo "Message from kafka sender" | kafkacat -b whirly-cluster-kafka-bootstrap.kafka:9092 -t grzegorz-topic -P
+        echo "Wiadomosc"
         sleep 10
       done
